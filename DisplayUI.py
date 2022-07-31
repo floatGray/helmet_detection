@@ -1,0 +1,263 @@
+from PyQt5 import QtCore
+from PyQt5.QtCore import Qt
+from PyQt5.QtGui import QFont, QIcon, QPixmap
+from PyQt5.QtWidgets import QProgressBar, QLabel, QPushButton, QWidget, QMenuBar, QStatusBar, QSlider
+
+
+class Ui_MainWindow(object):
+    def setupUi(self, MainWindow):
+        MainWindow.setObjectName("MainWindow")
+
+        MainWindow.setFixedSize(1280, 800)
+        # 窗口大小为1280×800
+        MainWindow.setWindowFlags(Qt.FramelessWindowHint)
+        self.centralwidget = QWidget(MainWindow)
+        self.centralwidget.setObjectName("centralwidget")
+        MainWindow.setStyleSheet("#MainWindow{background-color: #1F2C35}")
+
+        line = QLabel(self.centralwidget)
+        line.setGeometry(QtCore.QRect(0.5, 61.5, 1280, 1))
+        line.setMouseTracking(False)
+        line.setText("")
+        line.setStyleSheet('background-color:#4CB28A;')
+        line.setObjectName("line")
+
+        LabelFont = QFont()
+        LabelFont.setFamily("Microsoft YaHei")
+        LabelFont.setPointSize(16)
+        ButtonFont = QFont()
+        ButtonFont.setFamily("Microsoft YaHei")
+        ButtonFont.setPointSize(20)
+
+        self.TitleBar = QLabel(self.centralwidget)
+        self.TitleBar.setStyleSheet('background-color:#2B3743;')
+        self.TitleBar.setGeometry(QtCore.QRect(0, 0, 1280, 61.5))
+        self.TitleBar.setMouseTracking(False)
+        self.TitleBar.setText("")
+        self.TitleBar.setObjectName("TitleBar")
+
+        self.min = QPushButton(self.centralwidget)
+        min = QIcon()
+        min.addPixmap(QPixmap("icon/min.png"), QIcon.Normal, QIcon.Off)
+        self.min.setIcon(min)
+        self.min.setIconSize(QtCore.QSize(20, 20))
+        self.min.setGeometry(QtCore.QRect(1155, 12, 35, 35))
+        self.min.setObjectName("button")
+
+        self.resize = QPushButton(self.centralwidget)
+        resize = QIcon()
+        resize.addPixmap(QPixmap("icon/resize.png"), QIcon.Normal, QIcon.Off)
+        self.resize.setIcon(resize)
+        self.resize.setIconSize(QtCore.QSize(20, 20))
+        self.resize.setStyleSheet("QPushButton{background-color:#2B3743;border:none;}")
+        self.resize.setGeometry(QtCore.QRect(1190, 12, 35, 35))
+        self.resize.setObjectName("resize")
+
+        self.close = QPushButton(self.centralwidget)
+        close = QIcon()
+        close.addPixmap(QPixmap("icon/close.png"), QIcon.Normal, QIcon.Off)
+        self.close.setIcon(close)
+        self.close.setIconSize(QtCore.QSize(20, 20))
+        self.close.setGeometry(QtCore.QRect(1225, 12, 35, 35))
+        self.close.setObjectName("button")
+
+        self.StatusBar = QLabel(self.centralwidget)
+        self.StatusBar.setStyleSheet('background-color:#2B3743;')
+        self.StatusBar.setGeometry(QtCore.QRect(0, 62.5, 275, 862.5))
+        self.StatusBar.setMouseTracking(False)
+        self.StatusBar.setText("")
+        self.StatusBar.setObjectName("StatusBar")
+
+        self.CamButton = QPushButton(self.centralwidget)
+        self.CamButton.setText("摄像头")
+        cam = QIcon()
+        cam.addPixmap(QPixmap("icon/cam1.png"), QIcon.Normal, QIcon.Off)
+        self.CamButton.setIcon(cam)
+        self.CamButton.setIconSize(QtCore.QSize(20, 20))
+        self.CamButton.setGeometry(QtCore.QRect(397, 108, 134, 47))
+        self.CamButton.setObjectName("ChooseButton1")
+
+        self.FileButton = QPushButton(self.centralwidget)
+        self.FileButton.setText("视频")
+        video = QIcon()
+        video.addPixmap(QPixmap("icon/video1.png"), QIcon.Normal, QIcon.Off)
+        self.FileButton.setIcon(video)
+        self.FileButton.setIconSize(QtCore.QSize(20, 20))
+        self.FileButton.setGeometry(QtCore.QRect(602.3, 108, 134, 47))
+        self.FileButton.setObjectName("ChooseButton1")
+        self.FileButton.setFont(ButtonFont)
+
+        self.PicButton = QPushButton(self.centralwidget)
+        self.PicButton.setText("图片")
+        pic = QIcon()
+        pic.addPixmap(QPixmap("icon/pic1.png"), QIcon.Normal, QIcon.Off)
+        self.PicButton.setIcon(pic)
+        self.PicButton.setIconSize(QtCore.QSize(20, 20))
+        self.PicButton.setGeometry(QtCore.QRect(807.6, 108, 134, 47))
+        self.PicButton.setObjectName("ChooseButton1")
+        self.PicButton.setFont(ButtonFont)
+
+        self.PicsButton = QPushButton(self.centralwidget)
+        self.PicsButton.setText("多图")
+        pics = QIcon()
+        pics.addPixmap(QPixmap("icon/pics1.png"), QIcon.Normal, QIcon.Off)
+        self.PicsButton.setIcon(pics)
+        self.PicsButton.setIconSize(QtCore.QSize(20, 20))
+        self.PicsButton.setGeometry(QtCore.QRect(1013, 108, 134, 47))
+        self.PicsButton.setObjectName("ChooseButton1")
+        self.PicsButton.setFont(ButtonFont)
+
+        self.DispalyLabel = QLabel(self.centralwidget)
+        self.DispalyLabel.setAlignment(QtCore.Qt.AlignCenter | QtCore.Qt.AlignVCenter)
+        self.DispalyLabel.setStyleSheet('background-color:#2B3743;')
+        self.DispalyLabel.setGeometry(QtCore.QRect(316, 198, 913, 532))
+        self.DispalyLabel.setMouseTracking(False)
+        self.DispalyLabel.setText("")
+        self.DispalyLabel.setObjectName("DispalyLabel")
+
+        self.pbar = QProgressBar(self.centralwidget)
+        self.pbar.setGeometry(316, 742, 913, 19)
+        self.pbar.setFormat("%v")
+        self.pbar.setObjectName("ProgressBar")
+
+        self.slider = QSlider(Qt.Horizontal)
+        self.slider.setParent(self.centralwidget)
+        self.slider.setGeometry(316, 742, 913, 19)
+        self.slider.hide()
+        self.slider.setTickPosition(QSlider.TicksBelow)
+        self.slider.setTickInterval(1)
+        self.slider.setMinimum(1)
+        self.slider.setSingleStep(1)
+        self.slider.setObjectName("QSlider")
+        self.slider.setStyleSheet("QSlider::hover{border: 1px solid  # 4CB28A;}")
+
+        self.Last = QPushButton(self.centralwidget)
+        self.Last.setAutoRepeat(True)
+
+        self.Last.setStyleSheet("QPushButton{border-image: url(icon/last.png);border-radius:22px;}")
+        self.Last.setGeometry(QtCore.QRect(327, 440.83, 45.84, 45.89))
+        self.Last.setObjectName("Last")
+        self.Last.setEnabled(False)
+        self.Last.hide()
+
+        self.Next = QPushButton(self.centralwidget)
+        self.Next.setAutoRepeat(True)
+
+        self.Next.setStyleSheet("QPushButton{border-image: url(icon/next.png);border-radius:22px;}")
+        self.Next.setGeometry(QtCore.QRect(1174, 440.83, 45.84, 45.89))
+        self.Next.setObjectName("Next")
+        self.Next.setEnabled(False)
+        self.Next.hide()
+
+        self.ParamLabel = QLabel(self.centralwidget)
+        self.ParamLabel.setMouseTracking(False)
+        self.ParamLabel.setText("检测参数")
+        self.ParamLabel.setAlignment(QtCore.Qt.AlignCenter | QtCore.Qt.AlignVCenter)
+        self.ParamLabel.setGeometry(25, 198, 230, 33)
+        self.ParamLabel.setObjectName("ParamLabel")
+
+        self.ParamIcon = QLabel(self.centralwidget)
+        self.ParamIcon.setMouseTracking(False)
+        self.ParamIcon.setStyleSheet('border-image: url(icon/param.png);')
+        self.ParamIcon.setGeometry(70, 206.5, 20, 20)
+        self.ParamIcon.setObjectName("ParamIcon")
+
+        self.FPSLabel = QLabel(self.centralwidget)
+        self.FPSLabel.setMouseTracking(False)
+        self.FPSLabel.setText("摄像头fps：")
+
+        self.FPSLabel.setGeometry(25, 241, 230, 33)
+        self.FPSLabel.setObjectName("content")
+
+        self.FPSIcon = QLabel(self.centralwidget)
+        self.FPSIcon.setMouseTracking(False)
+        self.FPSIcon.setStyleSheet('border-image: url(icon/cam.png);')
+        self.FPSIcon.setGeometry(35, 248.5, 16, 18)
+        self.FPSIcon.setObjectName("FPSIcon")
+
+        self.RealFPSLabel = QLabel(self.centralwidget)
+        self.RealFPSLabel.setMouseTracking(False)
+        self.RealFPSLabel.setText("实际fps：")
+        self.RealFPSLabel.setGeometry(25, 284, 230, 33)
+        self.RealFPSLabel.setObjectName("content")
+
+        self.RealFPSIcon = QLabel(self.centralwidget)
+        self.RealFPSIcon.setMouseTracking(False)
+        self.RealFPSIcon.setStyleSheet('border-image: url(icon/real.png);')
+        self.RealFPSIcon.setGeometry(35, 292, 16, 18)
+        self.RealFPSIcon.setObjectName("RealFPSIcon")
+
+        self.TimeLabel = QLabel(self.centralwidget)
+        self.TimeLabel.setMouseTracking(False)
+        self.TimeLabel.setText("当前时间：")
+        self.TimeLabel.setGeometry(25, 327, 230, 33)
+        self.TimeLabel.setObjectName("content")
+
+        self.TimeIcon = QLabel(self.centralwidget)
+        self.TimeIcon.setMouseTracking(False)
+        self.TimeIcon.setStyleSheet('border-image: url(icon/time.png);')
+        self.TimeIcon.setGeometry(35, 335, 16, 18)
+        self.TimeIcon.setObjectName("TimeIcon")
+
+        self.ResultLabel = QLabel(self.centralwidget)
+        self.ResultLabel.setMouseTracking(False)
+        self.ResultLabel.setText("安全帽检测结果")
+        self.ResultLabel.setAlignment(QtCore.Qt.AlignCenter | QtCore.Qt.AlignVCenter)
+        self.ResultLabel.setGeometry(25, 500, 230, 33)
+        self.ResultLabel.setObjectName("ResultLabel")
+
+        self.ResultIcon = QLabel(self.centralwidget)
+        self.ResultIcon.setMouseTracking(False)
+        self.ResultIcon.setStyleSheet('border-image: url(icon/result.png);')
+        self.ResultIcon.setGeometry(60, 506.5, 20, 20)
+        self.ResultIcon.setObjectName("ResultIcon")
+
+        self.NumHatLabel = QLabel(self.centralwidget)
+        self.NumHatLabel.setMouseTracking(False)
+
+        self.NumHatLabel.setText("总共人数：")
+        self.NumHatLabel.setAlignment(QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter)
+        self.NumHatLabel.setGeometry(25, 543, 230, 33)
+        self.NumHatLabel.setObjectName("content")
+
+        self.YesIcon = QLabel(self.centralwidget)
+        self.YesIcon.setMouseTracking(False)
+        self.YesIcon.setStyleSheet('border-image: url(icon/yes.png);')
+        self.YesIcon.setGeometry(35, 551, 16, 18)
+        self.YesIcon.setObjectName("YesIcon")
+
+        self.NumPersonLabel = QLabel(self.centralwidget)
+        self.NumPersonLabel.setMouseTracking(False)
+        self.NumPersonLabel.setText("佩戴安全帽的人数：")
+        self.NumPersonLabel.setAlignment(QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter)
+        self.NumPersonLabel.setGeometry(25, 586, 230, 33)
+        self.NumPersonLabel.setObjectName("content")
+
+        self.NoIcon = QLabel(self.centralwidget)
+        self.NoIcon.setMouseTracking(False)
+        self.NoIcon.setStyleSheet('border-image: url(icon/no.png);')
+        self.NoIcon.setGeometry(35, 595, 16, 18)
+        self.NoIcon.setObjectName("NoIcon")
+
+        MainWindow.setCentralWidget(self.centralwidget)
+        self.menubar = QMenuBar(MainWindow)
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 853, 26))
+        self.menubar.setObjectName("menubar")
+        MainWindow.setMenuBar(self.menubar)
+
+        self.statusbar = QStatusBar(MainWindow)
+        self.statusbar.setObjectName("statusbar")
+        MainWindow.setStatusBar(self.statusbar)
+
+        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+    def retranslateUi(self, MainWindow):
+        _translate = QtCore.QCoreApplication.translate
+        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        self.CamButton.setText(_translate("MainWindow", "camera"))
+        self.FileButton.setText(_translate("MainWindow", "video"))
+        self.PicButton.setText(_translate("MainWindow", "picture"))
+        self.PicsButton.setText(_translate("MainWindow", "pictures"))
+
+        self.Last.setText(_translate("MainWindow", "Last"))
+        self.Next.setText(_translate("MainWindow", "Next"))
